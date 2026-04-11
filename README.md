@@ -1,3 +1,3 @@
 ### Project1_SAD_20252026
 
-A book in your palm.
+A digital system consists of logic gates.
