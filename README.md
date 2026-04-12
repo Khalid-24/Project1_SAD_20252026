@@ -7,3 +7,5 @@ A digital system consists of logic gates.
 This project is about Student Health management system
 
 We created this project in a team of 5 members
+
+iugui
