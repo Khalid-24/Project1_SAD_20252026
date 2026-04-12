@@ -1,7 +1,7 @@
 # 🏥 Student Health Management System (SHMS) - UTM
 
 <p align="center">
-  <img src="images.jpeg" alt="PKU UTM" width="600"/>
+  <img src="image.jpeg" alt="PKU UTM" width="600"/>
 </p>
 
 ---
