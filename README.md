@@ -30,7 +30,7 @@ mock account, you can use these IDs (any password works):
 | Healthcare Staff | STF-001   | "Dr. Aisha Rahman"     |
 | Administrator    | ADM-001   | "System Administrator" |
 
-## What's wired up ( Process Specifications)
+## What's wired up (Process Specifications)
 - **Process 1 — Login & Account Module:** role-based login routes to the
   Student, Staff, or Admin dashboard.
 - **Process 2 — Online Appointment Booking:** pick a department/doctor,
