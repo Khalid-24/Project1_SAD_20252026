@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Dashboard — SHMS</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="student">
+<div id="toastWrap"></div>
+
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brandmark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3z" fill="#fff"/><path d="M12 7v10M7 12h10" stroke="#0f5c73" stroke-width="1.6"/></svg>
+      </div>
+      <div class="brand-text">
+        <span class="name">SHMS</span>
+        <span class="sub">PKU · UTM</span>
+      </div>
+    </div>
+    <div class="role-pill">Student Portal</div>
+    <ul class="nav-list">
+      <li><button class="nav-link active" data-target="dashboardSec" data-label="Dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+        Dashboard</button></li>
+      <li><button class="nav-link" data-target="bookSec" data-label="Book Appointment">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="15" rx="1.5"/><path d="M4 9h16M8 3v4M16 3v4M9.5 14.5h5M12 12v5"/></svg>
+        Book Appointment</button></li>
+      <li><button class="nav-link" data-target="apptSec" data-label="My Appointments">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 6h14M5 12h14M5 18h9"/></svg>
+        My Appointments</button></li>
+      <li><button class="nav-link" data-target="recordsSec" data-label="Medical Records">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h7l4 4v13a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 12h6M9 16h6"/></svg>
+        Medical Records</button></li>
+      <li><button class="nav-link" data-target="messagesSec" data-label="Messages">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H8l-4 4V5z"/></svg>
+        Messages</button></li>
+      <li><button class="nav-link" data-target="emergencySec" data-label="Emergency Support">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l9 16H3L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>
+        Emergency Support</button></li>
+      <li><button class="nav-link" data-target="profileSec" data-label="My Profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-4 3.5-6 7-6s7 2 7 6"/></svg>
+        My Profile</button></li>
+    </ul>
+    <div class="sidebar-foot">
+      <button class="btn outline full" data-logout style="color:#cfe4e9;border-color:rgba(255,255,255,0.25);background:transparent;">Log Out</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div>
+        <h1 id="crumbText">Dashboard</h1>
+        <div class="crumb">Student Health Management System</div>
+      </div>
+      <div class="topbar-right">
+        <div class="user-chip">
+          <div class="user-avatar" id="chipAvatar">ST</div>
+          <div class="user-meta">
+            <div class="uname" id="chipName">Student</div>
+            <div class="urole" id="chipRole">Student</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- DASHBOARD -->
+      <section class="page-section active" id="dashboardSec">
+        <p style="margin-bottom:18px;">Welcome back, <strong id="welcomeName">Student</strong>. Here is a quick look at your healthcare activity at PKU.</p>
+        <div class="cards-row">
+          <div class="stat-card">
+            <div class="stat-label">Next Appointment</div>
+            <div class="stat-value" id="sumUpcoming" style="font-size:16px;">—</div>
+            <div class="stat-foot">From "My Appointments"</div>
+          </div>
+          <div class="stat-card accent">
+            <div class="stat-label">Total Appointments</div>
+            <div class="stat-value" id="sumTotal">0</div>
+            <div class="stat-foot">All-time bookings</div>
+          </div>
+          <div class="stat-card warning">
+            <div class="stat-label">Medical Records</div>
+            <div class="stat-value" id="sumRecords">0</div>
+            <div class="stat-foot">On file at PKU</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Messages</div>
+            <div class="stat-value" id="sumMessages">0 new</div>
+            <div class="stat-foot">From healthcare staff</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head"><h3>Quick Actions</h3></div>
+          <div class="panel-body" style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn" data-jump="bookSec">Book an Appointment</button>
+            <button class="btn secondary" data-jump="recordsSec">View Medical Records</button>
+            <button class="btn outline" data-jump="messagesSec">Message PKU Staff</button>
+            <button class="btn outline" data-jump="emergencySec">Emergency Support</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOK APPOINTMENT -->
+      <section class="page-section" id="bookSec">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>Book an Appointment</h3>
+              <div class="desc">Choose a department, pick an available time slot, then confirm your booking.</div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <form id="bookingForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label>Department</label>
+                  <select id="deptSelect">
+                    <option>General Consultation</option>
+                    <option>Dental Care</option>
+                    <option>Counselling &amp; Mental Health</option>
+                    <option>Physiotherapy</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>Preferred Doctor</label>
+                  <select id="doctorSelect"></select>
+                </div>
+                <div class="field">
+                  <label>Appointment Date</label>
+                  <input type="date" id="dateInput">
+                </div>
+                <div class="field">
+                  <label>Reason / Notes (optional)</label>
+                  <input type="text" id="notesInput" placeholder="e.g. Fever for 2 days">
+                </div>
+              </div>
+              <div class="field">
+                <label>Available Time Slots</label>
+                <div class="slot-grid" id="slotGrid"></div>
+                <div class="field-hint">Greyed-out slots are already booked for the selected department and date.</div>
+              </div>
+              <button type="submit" class="btn">Confirm Booking</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- MY APPOINTMENTS -->
+      <section class="page-section" id="apptSec">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>My Appointments</h3>
+              <div class="desc">Track upcoming and past appointments. Cancel a confirmed appointment if your plans change.</div>
+            </div>
+            <button class="btn small" data-jump="bookSec">+ New Appointment</button>
+          </div>
+          <div class="panel-body" style="padding:0;">
+            <table>
+              <thead><tr><th>Date</th><th>Time</th><th>Department</th><th>Doctor</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody id="apptTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEDICAL RECORDS -->
+      <section class="page-section" id="recordsSec">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>Medical Records</h3>
+              <div class="desc">Read-only history of your consultations at PKU. Records are updated by healthcare staff.</div>
+            </div>
+          </div>
+          <div class="panel-body" style="padding:0;">
+            <table>
+              <thead><tr><th>Date</th><th>Doctor</th><th>Diagnosis</th><th>Treatment</th><th>Prescription</th></tr></thead>
+              <tbody id="recordsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- MESSAGES -->
+      <section class="page-section" id="messagesSec">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>Messages</h3>
+              <div class="desc">Communicate directly with PKU healthcare staff about appointments or follow-ups.</div>
+            </div>
+          </div>
+          <div class="chat-layout">
+            <div class="contact-list" id="contactList"></div>
+            <div class="chat-area">
+              <div class="chat-head" id="chatHead">Conversation</div>
+              <div class="chat-messages" id="chatMessages"></div>
+              <form class="chat-input" id="chatForm">
+                <textarea id="chatInput" placeholder="Type a message..."></textarea>
+                <button type="submit" class="btn small">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EMERGENCY -->
+      <section class="page-section" id="emergencySec">
+        <div class="emg-grid">
+          <div class="emg-card">
+            <div class="emg-title">24-Hour Emergency Hotline</div>
+            <div class="emg-num">+607-553 2424</div>
+            <a class="btn small full" href="tel:+6075532424">Call Now</a>
+          </div>
+          <div class="emg-card">
+            <div class="emg-title">PKU Ambulance Service</div>
+            <div class="emg-num">+607-553 3999</div>
+            <a class="btn small secondary full" href="tel:+6075533999">Call Now</a>
+          </div>
+          <div class="emg-card">
+            <div class="emg-title">Nearest Hospital</div>
+            <div class="emg-num" style="font-size:15px;color:var(--text);">Hospital Sultanah Aminah, JB</div>
+            <a class="btn small outline full" href="tel:+6075383343">Call Hospital</a>
+          </div>
+        </div>
+
+        <div class="two-col" style="margin-top:18px;">
+          <div class="panel">
+            <div class="panel-head"><h3>First Aid &amp; Safety Guidelines</h3></div>
+            <div class="panel-body">
+              <ul class="first-aid-list">
+                <li>Stay calm and assess the situation before acting.</li>
+                <li>For severe bleeding, apply firm pressure with a clean cloth and seek help immediately.</li>
+                <li>For suspected fainting, lay the person flat and raise their legs slightly.</li>
+                <li>For breathing difficulty, keep the person upright and call the hotline immediately.</li>
+                <li>Never move a person with a suspected spinal injury unless absolutely necessary.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h3>Submit an Emergency Request</h3></div>
+            <div class="panel-body">
+              <form id="emergencyForm">
+                <div class="field">
+                  <label>Your Location</label>
+                  <input type="text" id="emgLocation" placeholder="e.g. Block N28, Level 2">
+                </div>
+                <div class="field">
+                  <label>Briefly describe the emergency</label>
+                  <textarea id="emgDesc" rows="3" placeholder="What happened? Who needs help?"></textarea>
+                </div>
+                <button type="submit" class="btn danger full">Send Emergency Request</button>
+              </form>
+              <p id="emgConfirm" style="display:none;margin-top:12px;background:var(--accent-light);color:#2c6b33;padding:10px 12px;border-radius:4px;font-size:13px;">
+                Your request has been sent to on-call PKU staff. Stay where you are if it is safe to do so — help is on the way.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="page-section" id="profileSec">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>My Profile</h3>
+              <div class="desc">Keep your contact details up to date so PKU staff can reach you.</div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <form id="profileForm">
+              <div class="form-grid">
+                <div class="field"><label>Full Name</label><input type="text" id="pName"></div>
+                <div class="field"><label>Matric Number</label><input type="text" id="pMatric" disabled></div>
+                <div class="field"><label>Email</label><input type="email" id="pEmail" placeholder="you@graduate.utm.my"></div>
+                <div class="field"><label>Phone Number</label><input type="text" id="pPhone" placeholder="01X-XXXXXXX"></div>
+                <div class="field full"><label>Programme</label><input type="text" id="pProgramme" placeholder="e.g. SECJ - Computer Science"></div>
+              </div>
+              <button type="submit" class="btn">Save Changes</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

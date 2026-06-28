@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHMS — Student Health Management System | PKU UTM</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page" data-page="login">
+
+  <div class="login-topbar">
+    <span>Universiti Teknologi Malaysia &nbsp;|&nbsp; Pusat Kesihatan Universiti</span>
+    <span>Prototype build &middot; <b>SECD2613 Group 5</b></span>
+  </div>
+
+  <div class="login-shell">
+    <div class="login-grid">
+
+      <div class="login-info">
+        <div>
+          <div class="brand" style="margin-bottom:18px;">
+            <div class="brandmark" style="background:#fff;">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3z" fill="#0f5c73"/><path d="M12 7v10M7 12h10" stroke="#fff" stroke-width="1.6"/></svg>
+            </div>
+            <div class="brand-text">
+              <span class="name" style="color:#fff;">SHMS</span>
+              <span class="sub" style="color:#bfe0e6;">Health Management System</span>
+            </div>
+          </div>
+          <h1>Pusat Kesihatan Universiti</h1>
+          <p class="desc">One platform for appointments, medical records, prescriptions and communication with PKU healthcare staff.</p>
+
+          <div class="info-block">
+            <div class="label">Clinic Operating Hours</div>
+            <div class="value">8:00 AM – 5:00 PM</div>
+            <div class="value small">Monday – Friday (excluding public holidays)</div>
+          </div>
+          <div class="info-block">
+            <div class="label">Walk-in &amp; Appointment Counter</div>
+            <div class="value small">Block C09, Universiti Teknologi Malaysia, 81310 Johor Bahru</div>
+          </div>
+        </div>
+
+        <div class="emergency-box">
+          <div class="label">24-Hour Emergency Hotline</div>
+          <div class="value">+607-553 2424</div>
+        </div>
+      </div>
+
+      <div class="login-form-area">
+        <h2>Sign in to SHMS</h2>
+        <p class="field-hint" style="margin-bottom:0;">Choose your account type, then enter your credentials.</p>
+
+        <div class="role-tabs">
+          <button type="button" class="role-tab active" data-role="Student">Student</button>
+          <button type="button" class="role-tab" data-role="Staff">Healthcare Staff</button>
+          <button type="button" class="role-tab" data-role="Admin">Administrator</button>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="field">
+            <label id="idLabel" for="idInput">Matric Number</label>
+            <input id="idInput" type="text" placeholder="e.g. A23CS0099" autocomplete="off">
+            <div class="field-error" id="idErr">This field is required.</div>
+          </div>
+          <div class="field">
+            <label for="pwInput">Password</label>
+            <input id="pwInput" type="password" placeholder="Enter your password">
+            <div class="field-error" id="pwErr">This field is required.</div>
+          </div>
+          <button type="submit" class="btn full">Log In</button>
+        </form>
+
+        <div class="login-demo-note">
+          <b>Prototype note:</b> this is a design demo for Phase 3 of the SAD project. Enter any ID and password to continue — no real account is required.
+        </div>
+        <div class="login-footnote">Forgot password? Visit the PKU counter or contact your faculty office.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer">
+    Student Health Management System — Group 5 (SECD2613, Section 06) &middot; Phase 3: Analysis &amp; Design Prototype
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — SHMS</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="admin">
+<div id="toastWrap"></div>
+
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brandmark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3z" fill="#fff"/><path d="M12 7v10M7 12h10" stroke="#0f5c73" stroke-width="1.6"/></svg>
+      </div>
+      <div class="brand-text">
+        <span class="name">SHMS</span>
+        <span class="sub">PKU · UTM</span>
+      </div>
+    </div>
+    <div class="role-pill">Administrator Portal</div>
+    <ul class="nav-list">
+      <li><button class="nav-link active" data-target="admDashboardSec" data-label="Dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+        Dashboard</button></li>
+      <li><button class="nav-link" data-target="userMgmtSec" data-label="User Management">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"/><path d="M16 8.2a3 3 0 010 5.6M19 20c0-2.6-1.4-4.4-3.4-5.2"/></svg>
+        User Management</button></li>
+      <li><button class="nav-link" data-target="reportsSec" data-label="Reports">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19V9M11 19V5M17 19v-7"/><path d="M3 19h18"/></svg>
+        Reports</button></li>
+      <li><button class="nav-link" data-target="settingsSec" data-label="System Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.7 7.7 0 000-2l2-1.4-2-3.3-2.3.7a7.7 7.7 0 00-1.7-1l-.3-2.4H9.9l-.3 2.4a7.7 7.7 0 00-1.7 1l-2.3-.7-2 3.3L5.6 11a7.7 7.7 0 000 2l-2 1.4 2 3.3 2.3-.7c.5.4 1.1.8 1.7 1l.3 2.4h4.2l.3-2.4c.6-.2 1.2-.6 1.7-1l2.3.7 2-3.3-2-1.4z"/></svg>
+        System Settings</button></li>
+    </ul>
+    <div class="sidebar-foot">
+      <button class="btn outline full" data-logout style="color:#cfe4e9;border-color:rgba(255,255,255,0.25);background:transparent;">Log Out</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div>
+        <h1 id="crumbText">Dashboard</h1>
+        <div class="crumb">Student Health Management System</div>
+      </div>
+      <div class="topbar-right">
+        <div class="user-chip">
+          <div class="user-avatar" id="chipAvatar">AD</div>
+          <div class="user-meta">
+            <div class="uname" id="chipName">Administrator</div>
+            <div class="urole" id="chipRole">System Administrator</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- DASHBOARD -->
+      <section class="page-section active" id="admDashboardSec">
+        <p style="margin-bottom:18px;">System-wide overview of SHMS usage at PKU.</p>
+        <div class="cards-row">
+          <div class="stat-card">
+            <div class="stat-label">Registered Students</div>
+            <div class="stat-value" id="admSumStudents">0</div>
+          </div>
+          <div class="stat-card accent">
+            <div class="stat-label">Healthcare Staff</div>
+            <div class="stat-value" id="admSumStaff">0</div>
+          </div>
+          <div class="stat-card warning">
+            <div class="stat-label">Active Appointments</div>
+            <div class="stat-value" id="admSumAppts">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Medical Records</div>
+            <div class="stat-value" id="admSumRecords">0</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Quick Actions</h3></div>
+          <div class="panel-body" style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn" data-jump="userMgmtSec">Manage Users</button>
+            <button class="btn secondary" data-jump="reportsSec">Generate a Report</button>
+            <button class="btn outline" data-jump="settingsSec">System Settings</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- USER MANAGEMENT -->
+      <section class="page-section" id="userMgmtSec">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>User Accounts</h3>
+              <div class="desc">Manage student, healthcare staff, and administrator accounts.</div>
+            </div>
+            <button class="btn small" id="openAddUser">+ Add User</button>
+          </div>
+          <div class="panel-body">
+            <div class="section-toolbar">
+              <div class="search-box">
+                <input type="text" id="userSearch" placeholder="Search by name, ID, or role...">
+              </div>
+            </div>
+          </div>
+          <div style="padding:0 0 4px 0;">
+            <table>
+              <thead><tr><th>ID</th><th>Name</th><th>Role</th><th>Email</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody id="userTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- REPORTS -->
+      <section class="page-section" id="reportsSec">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>Generate Healthcare Report</h3>
+              <div class="desc">Select a report type to view system-wide statistics.</div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;margin-bottom:6px;">
+              <div class="field" style="margin-bottom:0;min-width:240px;">
+                <label>Report Type</label>
+                <select id="reportType">
+                  <option>Appointment Summary</option>
+                  <option>Healthcare Usage</option>
+                  <option>System Activity</option>
+                </select>
+              </div>
+              <button class="btn" id="generateReportBtn">Generate Report</button>
+              <button class="btn outline" id="exportReportBtn">Export Report</button>
+            </div>
+
+            <hr class="div">
+            <h4 id="reportTitle">Report</h4>
+            <div class="bars" id="reportBars"></div>
+            <table style="margin-top:14px;">
+              <thead><tr><th>Category</th><th>Value</th></tr></thead>
+              <tbody id="reportTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="page-section" id="settingsSec">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h3>System Settings</h3>
+              <div class="desc">Configure notifications and system availability.</div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="switch-row">
+              <div>
+                <div class="s-title">Email Notifications</div>
+                <div class="s-desc">Send appointment confirmations and updates by email.</div>
+              </div>
+              <label class="switch"><input type="checkbox" id="toggleEmail"><span class="slider"></span></label>
+            </div>
+            <div class="switch-row">
+              <div>
+                <div class="s-title">SMS Appointment Reminders</div>
+                <div class="s-desc">Send a reminder text 24 hours before each appointment.</div>
+              </div>
+              <label class="switch"><input type="checkbox" id="toggleSms"><span class="slider"></span></label>
+            </div>
+            <div class="switch-row">
+              <div>
+                <div class="s-title">Maintenance Mode</div>
+                <div class="s-desc">Temporarily restrict student access during system updates.</div>
+              </div>
+              <label class="switch"><input type="checkbox" id="toggleMaint"><span class="slider"></span></label>
+            </div>
+            <button class="btn" id="saveSettingsBtn" style="margin-top:14px;">Save Settings</button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- ADD USER MODAL -->
+<div class="modal-overlay" id="addUserModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>Add User Account</h3>
+      <button class="modal-close" data-close-modal>&times;</button>
+    </div>
+    <form id="addUserForm">
+      <div class="modal-body">
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" id="newUserName" placeholder="e.g. Dr. Sarah binti Yusof">
+        </div>
+        <div class="field">
+          <label>Role</label>
+          <select id="newUserRole">
+            <option>Student</option>
+            <option>Doctor</option>
+            <option>Dentist</option>
+            <option>Physiotherapist</option>
+            <option>Receptionist</option>
+            <option>Pharmacist</option>
+            <option>Admin</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="newUserEmail" placeholder="name@utm.my">
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn outline" data-close-modal>Cancel</button>
+        <button type="submit" class="btn">Create Account</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
