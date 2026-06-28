@@ -30,7 +30,7 @@ mock account, you can use these IDs (any password works):
 | Healthcare Staff | STF-001   | "Dr. Aisha Rahman"     |
 | Administrator    | ADM-001   | "System Administrator" |
 
-## What's wired up (per your Process Specifications, Section 6.2)
+## What's wired up ( Process Specifications)
 - **Process 1 — Login & Account Module:** role-based login routes to the
   Student, Staff, or Admin dashboard.
 - **Process 2 — Online Appointment Booking:** pick a department/doctor,
@@ -45,11 +45,102 @@ mock account, you can use these IDs (any password works):
 - **Process 6 — Admin Dashboard & Reports:** user account management,
   generated usage reports with a simple chart, and system settings.
 
-## A couple of honest limitations (worth knowing for your demo/viva)
-- Data is stored per-browser (`localStorage`), not on a shared server, so
-  what a "student" books won't show up live on someone else's laptop —
-  this is expected for a Phase 3 prototype, which is about validating the
-  design, not building the real system yet.
+## 📖 Project Overview
+
+The current healthcare service at PKU relies on manual and semi-digital processes, which can lead to:
+
+- Long waiting times
+- Manual appointment scheduling
+- Poor communication during urgent situations
+- Limited access to medical records
+- Increased administrative workload
+
+To address these challenges, the proposed SHMS provides a centralized platform that improves healthcare service management while enhancing the overall experience for students and healthcare staff.
+
+---
+
+## 🎯 Project Objectives
+
+- Develop a centralized healthcare management system for PKU.
+- Enable online appointment booking and scheduling.
+- Provide secure electronic medical record management.
+- Improve communication between students and healthcare staff.
+- Provide emergency support information through the system.
+- Reduce paperwork and manual administrative tasks.
+- Improve healthcare service efficiency and accessibility.
+
+---
+
+## ✨ Key Features
+
+### 👨‍🎓 Student
+
+- Secure Login
+- Online Appointment Booking
+- View Appointment Status
+- View Electronic Medical Records
+- Contact Healthcare Staff
+- Receive Notifications & Reminders
+- Access Emergency Support Information
+
+### 👩‍⚕️ Healthcare Staff
+
+- Staff Login
+- Manage Student Appointments
+- Update Medical Records
+- Respond to Student Queries
+- Manage Notifications
+- View Appointment Schedule
+
+### 👨‍💼 System Administrator
+
+- Manage User Accounts
+- Generate Reports
+- View Dashboard Analytics
+- Maintain System Data
+
+---
+
+## 🛠️ Technologies Used
+
+- **System Analysis and Design (SAD)**
+- UML Diagrams
+- Data Flow Diagrams (DFD)
+- Entity Relationship Diagram (ERD)
+- Git & GitHub
+- GitHub Projects (Kanban Board)
+
+> *This project focuses on system analysis and design. The implementation technologies may vary in future development.*
+
+---
+
+## 📂 Project Documentation
+
+This repository contains:
+
+- Phase 1 – Project Proposal & Planning
+- Phase 2 – System Analysis
+- Phase 3 – System Design
+- UML Diagrams
+- Data Flow Diagrams (DFD)
+- ER Diagram
+- Database Design
+- User Interface Design
+- Project Report
+
+---
+
+## 👥 Team Members
+
+| Name | Role |
+|------|------|
+| **Md Khalid Safiullah** | Team Leader, Project Planning, System Analysis & Design |
+| **Member 2** | Requirement Gathering & Documentation |
+| **Member 3** | Data Flow Diagrams & Database Design |
+| **Member 4** | UML Diagrams & Interface Design |
+| **Member 5** | Testing, Validation & Report Compilation |
+
+---
 - "Sign in" accepts any credentials by design, since there's no backend
   authentication to check against.
 - If you want to reset all the demo data back to its original state,
