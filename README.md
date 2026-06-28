@@ -1,5 +1,5 @@
 # SHMS Prototype — Student Health Management System
-Group 5 · SECD2613 (Section 06) · Phase 3 Analysis & Design
+Group 5 · SECD2613 (Section 06) 
 
 ## What this is
 A front-end-only clickable prototype of the SHMS, built directly from your
