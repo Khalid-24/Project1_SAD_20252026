@@ -140,9 +140,5 @@ This repository contains:
 | **Member 4** | UML Diagrams & Interface Design |
 | **Member 5** | Testing, Validation & Report Compilation |
 
----
-- "Sign in" accepts any credentials by design, since there's no backend
-  authentication to check against.
-- If you want to reset all the demo data back to its original state,
   open your browser's DevTools console on any page and run:
   `localStorage.clear()`, then refresh.
